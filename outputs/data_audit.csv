@@ -1,0 +1,11 @@
+metric,value
+tickets_all_rows,11780
+tickets_in_assignment_window,11641
+duplicate_ticket_ids,0
+created_dates_before_window,139
+created_dates_after_window,0
+resolved_before_created,2379
+resolved_before_first_response,2575
+tickets_with_missing_order_id,4017
+tickets_with_missing_transfers,4052
+tickets_with_missing_csat,6435
