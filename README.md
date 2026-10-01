@@ -9,7 +9,7 @@ The implementation is deliberately deterministic and uses **no paid LLM/API**. E
 Priya requested monthly volume by category and team for the Jan 2025–Jun 2026 analysis window, with the headcount question framed around the largest team. The supplied data shows Chat Frontline is the largest first-assigned team by volume, while Billing has materially higher SLA-breach exposure. The analysis therefore reports both volume and service-risk indicators rather than treating raw volume as a sufficient staffing metric.
 
 ## 3. Architecture
-- `data/`: supplied source files.
+- ` Source data: supplied separately for analysis; raw ticket-level data is intentionally excluded from this public repository.
 - `src/analyze.py`: loading, windowing, deterministic categorization, SLA calculations, summaries, and audit.
 - `outputs/`: reproducible CSVs and charts.
 - No database, web server, API key, model endpoint, or external service is required.
@@ -41,12 +41,12 @@ python src/analyze.py --data-dir data --output-dir outputs
 `tickets.csv`, `agents.csv`, `customers.csv`, `orders.csv`, `products.csv`, `support-policy.pdf`, and `email-thread.txt`.
 
 ## 9. Output files
-- `categorized_tickets.csv`
+- `categorized_tickets.csv` (ticket-level working output; not published in this public repository)
 - `monthly_category.csv`
 - `monthly_team.csv`
 - `team_summary.csv`
 - `category_summary.csv`
-- `validation_results.csv`
+- `validation_summary.csv` (public aggregate validation output)
 - `data_audit.csv`
 - PNG charts
 
@@ -105,4 +105,5 @@ Deliberately excluded:
 - Multilingual model — not required to demonstrate the core categorization workflow.
 
 ## 16. Example output
-Running the command produces the CSVs and charts under `outputs/`. The included `validation_results.csv` records the reviewed sample and classifier agreement.
+Running the command produces the CSVs and charts under `outputs/`. The included `validation_summary.csv` (public aggregate validation output) records the reviewed sample and classifier agreement.
+
